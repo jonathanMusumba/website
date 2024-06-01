@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="dashboard.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="responsive.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="bg-dark text-light p-3">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>LUBEGA INSTITUTE OF NURSING DASHBOARD </h3>
+                </div>
+                <div class="col-md-6 text-md-right">
+                    <span class="d-block d-md-inline-block mr-3">Logged in as <?php echo $role; ?> (Logged in: <?php echo $loginTime; ?>)</span>
+                    <span class="d-block d-md-inline-block mr-3">Current Date: <?php echo date("Y-m-d"); ?></span>
+                    <form action="logout.php" method="post">
+                        <button type="submit" class="btn btn-danger">Logout</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Side Navigation -->
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-tachometer-alt"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="toggleCourses">
+                            <i class="fas fa-book"></i> Courses
+                        </a>
+                        <div id="coursesSubMenu" class="submenu" style="display: none;">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="view_courses.php">
+                                        <i class="fas fa-eye"></i> View Courses
+                                    </a>
+                                </li>
+                                <?php if($role == 'Director' || $role == 'Principal') { ?>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="manage_courses.php">
+                                        <i class="fas fa-cog"></i> Manage Courses
+                                    </a>
+                                </li>
+                                <?php } ?>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="toggleStudents">
+                            <i class="fas fa-graduation-cap"></i> Students
+                        </a>
+                        <div id="studentsSubMenu" class="submenu" style="display: none;">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="view_students.php">
+                                        <i class="fas fa-eye"></i> View Students
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="manage_students.php">
+                                        <i class="fas fa-cog"></i> Manage Students (CRUD)
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="toggleApplicants">
+                            <i class="fas fa-user-plus"></i> Applicants
+                        </a>
+                        <div id="applicantsSubMenu" class="submenu" style="display: none;">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="view_applicants.php">
+                                        <i class="fas fa-eye"></i> View Applicants
+                                    </a>
+                                </li>
+                                <?php if ($role == 'Director' || $role == 'Principal') : ?>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="manage_applicants.php">
+                                        <i class="fas fa-cog"></i> Manage Applicants
+                                    </a>
+                                </li>
+                                <?php endif; ?>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="toggleStaff">
+                            <i class="fas fa-users"></i> Staff
+                        </a>
+                        <div id="staffSubMenu" class="submenu" style="display: none;">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="view_staff.php">
+                                        <i class="fas fa-eye"></i> View Staff
+                                    </a>
+                                </li>
+                                <?php if($role == 'Director' || $role == 'Principal') { ?>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="manage_staff.php">
+                                        <i class="fas fa-cog"></i> Manage Staff
+                                    </a>
+                                </li>
+                                <?php } ?>
+                            </ul>
+
+                        </div>
+                    </li>
+                    <?php if($role == 'Director' || $role == 'Principal') { ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="toggleUsers">
+                            <i class="fas fa-users-cog"></i> Users
+                        </a>
+                        <div id="usersSubMenu" class="submenu" style="display: none;">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="view_users.php">
+                                        <i class="fas fa-eye"></i> View Users
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" id="toggleUsers">
+                                        <i class="fas fa-users-cog"></i> Manage Users
+                                    </a>
+                                    <ul id="manageUsersSubMenu" class="nav flex-column submenu" style="display: none;">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="pending_users.php">
+                                                <i class="fas fa-user-clock"></i> Pending Users
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="approved_users.php">
+                                                <i class="fas fa-user-check"></i> Approved Users
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <?php if($role == 'Director' || $role == 'Principal') { ?>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="add_user.php">
+                                        <i class="fas fa-user-plus"></i> Add User
+                                    </a>
+                                </li>
+                                <?php } ?>
+                            </ul>
+                        </div>
+                    </li>
+                    <?php } ?>
+
+
+                </ul>
+            </div>
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+                <div id="main-content" class="container-fluid mt-3">
+                    <div class="container-fluid mt-3">
+                        <h2>Dashboard</h2>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <!-- Total Applicants -->
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Total Applicants</h5>
+                                        <p class="card-text">
+                                            <?php echo $totalApplicants; ?>
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- Today's Applicants -->
+                                <div class="card mt-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Today's Applicants</h5>
+                                        <p class="card-text">
+                                            <?php echo $todaysApplicants; ?>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <!-- Summary by Course -->
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Summary by Course</h5>
+                                        <ul class="list-group">
+                                            <?php foreach ($courseSummary as $course => $applicants) : ?>
+                                            <li class="list-group-item">
+                                                <?php echo $course . ': ' . $applicants; ?>
+                                            </li>
+                                            <?php endforeach; ?>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Applicants by Gender -->
+                                <div class="card mt-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Applicants by Gender</h5>
+                                        <canvas id="genderChart"></canvas>
+                                    </div>
+                                </div>
+                                <!-- Applicants by Level -->
+                                <div class="card mt-3">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Applicants by Level</h5>
+                                        <canvas id="levelChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+        </div>
+    </div>
+    <footer class="bg-dark text-light text-center py-3 mt-5">
+        Footer Options
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="custom.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            function loadContent(url) {
+                $('#mainContent').load(url);
+            }
+            $('#toggleCourses').on('click', function(e) {
+                e.preventDefault();
+                loadContent('view_courses.php');
+            });
+            $('#toggleCourses').on('click', function(e) {
+                e.preventDefault(); // Prevent default link behavior
+                loadContent('add_course.php'); // Load view_courses.php into main content
+            });
+
+            // Event listener for the "Students" section
+            $('#toggleStudents').on('click', function(e) {
+                e.preventDefault(); // Prevent default link behavior
+                loadContent('view_students.php'); // Load view_students.php into main content
+            });
+            $('#toggleStudents').on('click', function(e) {
+                e.preventDefault(); // Prevent default link behavior
+                loadContent('manage_students.php'); // Load view_students.php into main content
+            });
+            $('#toggleStudents').on('click', function(e) {
+                e.preventDefault(); // Prevent default link behavior
+                loadContent('add_student.php'); // Load view_students.php into main content
+            });
+
+            $('#toggleApplicants').on('click', function(e) {
+                e.preventDefault();
+                loadContent('view_applicants.php');
+            });
+            $('#toggleApplicants').on('click', function(e) {
+                e.preventDefault();
+                loadContent('manage_applicants.php');
+            });
+            $('#toggleApplicants').on('click', function(e) {
+                e.preventDefault();
+                loadContent('action_applicants.php');
+            });
+
+
+            $('#toggleStaff').on('click', function(e) {
+                e.preventDefault();
+                loadContent('view_staff.php');
+            });
+            $('#toggleStaff').on('click', function(e) {
+                e.preventDefault();
+                loadContent('manage_staff.php');
+            });
+            $('#toggleStaff').on('click', function(e) {
+                e.preventDefault();
+                loadContent('add_staff.php');
+            });
+
+        });
+    </script>
+
+    <script>
+        document.getElementById('toggleApplicants').addEventListener('click', function() {
+            var submenu = document.getElementById('applicantsSubMenu');
+            if (submenu.style.display === 'none' || submenu.style.display === '') {
+                submenu.style.display = 'block';
+            } else {
+                submenu.style.display = 'none';
+            }
+
+        });
+        document.getElementById('toggleCourses').addEventListener('click', function() {
+            var submenu = document.getElementById('coursesSubMenu');
+            if (submenu.style.display === 'none' || submenu.style.display === '') {
+                submenu.style.display = 'block';
+            } else {
+                submenu.style.display = 'none';
+            }
+        });
+        document.getElementById('toggleStaff').addEventListener('click', function() {
+            var submenu = document.getElementById('staffSubMenu');
+            if (submenu.style.display === 'none' || submenu.style.display === '') {
+                submenu.style.display = 'block';
+            } else {
+                submenu.style.display = 'none';
+            }
+        });
+        document.getElementById('toggleStudents').addEventListener('click', function() {
+            var submenu = document.getElementById('studentsSubMenu');
+            if (submenu.style.display === 'none' || submenu.style.display === '') {
+                submenu.style.display = 'block';
+            } else {
+                submenu.style.display = 'none';
+            }
+        });
+    </script>
+    <?php if($role == 'Director') { ?>
+    <script>
+        document.getElementById('toggleUsers').addEventListener('click', function() {
+            var submenu = document.getElementById('usersSubMenu');
+            if (submenu.style.display === 'none' || submenu.style.display === '') {
+                submenu.style.display = 'block';
+            } else {
+                submenu.style.display = 'none';
+            }
+        });
+        document.addEventListener("DOMContentLoaded", function() {
+            const toggleUsers = document.getElementById("toggleUsers");
+            const manageUsersSubMenu = document.getElementById("manageUsersSubMenu");
+
+            // Add event listener to toggleUsers link
+            toggleUsers.addEventListener("click", function() {
+                // Toggle the display style of the manageUsersSubMenu
+                if (manageUsersSubMenu.style.display === "none") {
+                    manageUsersSubMenu.style.display = "block";
+                } else {
+                    manageUsersSubMenu.style.display = "none";
+                }
+            });
+        });
+    </script>
+    </main>
+
+
+</body>
+
+</html>

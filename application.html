@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="title" content="Lubega Institute of Nursing and Medical Sciences - Nursing School in Uganda, Medical School in Uganda.">
+    <meta name="keywords" content="Nursing School in Uganda, Lubega Institute of Nursing and Medical Sciences, LINMS, Nursing in Uganda, Midwifery in Uganda.">
+    <meta name="description" content="Lubega institute of Nursing and Medical Sciences is a nursing School in Uganda located 2km from Iganga Town. Off Iganga-Malaba Highway, Busei, Nakalama Subcounty, Iganga. Join LINMS one of Uganda&#039;s top Nursing Schools.">
+    <title>Application form</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/fa.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div class="container">
+
+        <form action="submit.php" method="POST" enctype="multipart/form-data">
+            <div class="header" style="background-color: green;padding: 0;text-align: center; padding-top: 0; height: 30px;color: aliceblue; border-radius: 5px;">
+                <h2>APPLICATION FORM</h2>
+            </div>
+            <!-- Section A -->
+            <div id="sectionA">
+                <h2>Section A: Course Information & Bio-data</h2>
+                <hr>
+                <div class="form-group">
+                    <label for="entryType">Entry Type:</label>
+                    <label><input type="radio" name="entryType" value="direct" required> Direct Entry ('O' & A Level leavers)</label>
+                    <label><input type="radio" name="entryType" value="indirect" required> Indirect Entry (Extension)</label>
+                </div>
+                <hr>
+                <div class="form-group">
+                    <label for="level">Level:</label>
+                    <label><input type="radio" name="level" value="certificate" required> Certificate</label>
+                    <label><input type="radio" name="level" value="diploma" required> Diploma</label>
+                </div>
+
+
+                <div class="form-row">
+                    <div classfall class="form-group">
+                        <label="course">Course:</label>
+                            <select name="course" id="course" required>
+                    <option value="">Select Course</option>
+                    <optgroup label="Certificate Courses" id="certificateCourses">
+                        <option value="Certificate in Medical Laboratory Techniques">Certificate in Medical Laboratory Techniques</option>
+                        <option value="Certificate in Pharmacy">Certificate in Pharmacy</option>
+                        <option value="Certificate in Nursing">Certificate in Nursing</option>
+                        <option value="Certificate in Midwifery">Certificate in Midwifery</option>
+                        <option value="Certificate In Baking">Certificate In Baking</option>
+                        <option value="Certificate In Cookery">Certificate In Cookery</option>
+                        <option value="Certificate In Juice Processing">Certificate In Juice Processing</option>
+                        <option value="Certificate in Records and Information Management">Certificate in Records and Information Management</option>
+                        <option value="National Certificate in Finance and Accounting">National Certificate in Finance and Accounting</option>
+                        <option value="National Certificate in Public Administration and Management">National Certificate in Public Administration and Management</option>
+                        <option value="National Certificate in Hotel and Institutional Catering">National Certificate in Hotel and Institutional Catering</option>
+                    </optgroup>
+                    <optgroup label="Diploma Courses" id="diplomaCourses">
+                        <option value="Diploma In Clinical Medicine and Community Health">Diploma In Clinical Medicine and Community Health</option>
+                        <option value="Diploma in Nursing (Extension)">Diploma in Nursing (Extension)</option>
+                        <option value="Diploma in Midwifery (Extension)">Diploma in Midwifery (Extension)</option>
+                        <option value="Diploma in Pharmacy">Diploma in Pharmacy</option>
+                        <option value="Diploma in Medical Laboratory Techniques">Diploma in Medical Laboratory Techniques</option>
+                        <option value="Diploma in Hotel and Institutional Catering">Diploma in Hotel and Institutional Catering</option>
+                        <option value="Diploma in Records and Information Management">Diploma in Records and Information Management</option>
+                    </optgroup>
+                </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="academicSession">Academic Session:</label>
+                        <select name="academicSession" id="academicSession" required>
+                    <option value="">Select Academic Session</option>
+                    <option value="2024/2025">2024/2025</option>
+                    <option value="2025/2026">2025/2026</option>
+                    <option value="2026/2027">2026/2027</option>
+                    <option value="2027/2028">2027/2028</option>
+                    <option value="2029/2030">2029/2030</option>
+                    <option value="2030/2031">2030/2031</option>
+                    <option value="2031/2032">2031/2032</option>
+                    <option value="2032/2033">2032/2033</option>
+                </select>
+                    </div>
+                </div>
+                <hr class="thick-line">
+                <div class="bio-data-container">
+                    <h2>Bio-Data Section</h2>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <!--<label for="surname">Sur Name:</label>-->
+                            Surname: <input type="text" id="surname" name="surname" required>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="givenName">Given Name:</label>
+                            <input type="text" id="givenName" name="givenName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="otherNames">Other names:</label>
+                            <input type="text" id="otherNames" name="otherNames" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dob">Date of Birth:</label>
+                            <input type="text" id="dob" name="dob" style="width: 180px;" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="age">Age:</label>
+                            <input type="text" id="age" name="age" style="width: 50px;" value="" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="sex">Sex:</label>
+                            <label><input type="radio" id="male" name="sex" value="male" required> Male</label>
+                            <label><input type="radio" id="female" name="sex" value="female" required> Female</label>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="maritalStatus">Marital Status:</label>
+                            <select id="maritalStatus" name="maritalStatus" required>
+                <option value="">Select Marital Status</option>
+                <option value="single">Single</option>
+                <option value="married">Married</option>
+                <option value="divorced">Divorced</option>
+                <option value="widowed">Widowed</option>
+            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="religion">Religion:</label>
+                            <select id="religion" name="religion" required>
+                <option value="">Select Religion</option>
+                <option value="moslem">Moslem</option>
+                <option value="anglican">Anglican</option>
+                <option value="bornAgain">Born-Again</option>
+                <option value="catholic">Catholic</option>
+                <option value="seventhAdventist">Seventh Adventist</option>
+                <option value="traditionist">Traditionist</option>
+            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                    function calculateAge() {
+                        const dobInput = document.getElementById('dob');
+                        const ageInput = document.getElementById('age');
+                        const [day, month, year] = dobInput.value.split('/').map(Number);
+                        const dobValue = new Date(year, month - 1, day);
+                        const today = new Date();
+                        let age = today.getFullYear() - dobValue.getFullYear();
+                        if (today.getMonth() < dobValue.getMonth() || (today.getMonth() === dobValue.getMonth() && today.getDate() < dobValue.getDate())) {
+                            age--;
+                        }
+                        ageInput.value = age;
+                    }
+                    document.getElementById('dob').addEventListener('change', calculateAge);
+                </script>
+                <button type="button" onclick="if(validateSectionA())nextSection('sectionA', 'sectionB')">Next</button>
+            </div>
+            <script>
+                function validateSectionA() {
+                    var entryType = document.querySelector('input[name="entryType"]:checked');
+                    var level = document.querySelector('input[name="level"]:checked');
+                    var course = document.getElementById('course').value;
+                    var surname = document.getElementById('surname').value;
+                    var givenName = document.getElementById('givenName').value;
+                    var dob = document.getElementById('dob').value;
+
+                    if (!entryType || !level || course === '' || surname === '' || givenName === '' || dob === '') {
+                        alert('Please fill in all required fields.');
+                        return false;
+                    }
+
+                    return true;
+                }
+
+                function validateAndProceed() {
+                    if (validateSectionA()) {
+                        document.getElementById('sectionA').style.display = 'none';
+                        document.getElementById('sectionB').style.display = 'block';
+                    }
+                }
+            </script>
+
+            <!-- Section B -->
+            <div id="sectionB" style="display: none;">
+                <h2>Section B: Academic Background</h2>
+                <!-- Uganda Certificate of Education (UCE) Section -->
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="uceIndex" style="display: inline-block; width: 150px; margin-right: 2px;">Index Number:</label>
+                        <input type="text" id="uceIndex" name="uceIndex" maxlength="9" placeholder="U0000/000" required style="width: 150px;">
+                    </div>
+                    <div class="form-group">
+                        <label for="uceYear" style="display: inline-block; width: 150px; margin-right: 2px;">Year:</label>
+                        <input type="text" id="uceYear" name="uceYear" maxlength="4" placeholder="YYYY" required style="width: 150px;">
+                    </div>
+                </div>
+                <h2>Subject scores(Indicate the Subjects and their scores)</h2>
+                <div class="form-row" style="display: flex;">
+                    <div class="form-group" style="flex-basis: calc(25% - 10px); margin-right: 10px;">
+                        <label for="englishUce">English</label>
+                        <input type="number" id="englishUce" name="englishUce" min="1" max="9" required>
+                    </div>
+                    <div class="form-group" style="flex-basis: calc(25% - 10px); margin-right: 10px;">
+                        <label for="mathematicsUce">Mathematics</label>
+                        <input type="number" id="mathematicsUce" name="mathematicsUce" min="1" max="9" required>
+                    </div>
+                    <div class="form-group" style="flex-basis: calc(25% - 10px); margin-right: 10px;">
+                        <label for="biologyUce">Biology</label>
+                        <input type="number" id="biologyUce" name="biologyUce" min="1" max="9" required>
+                    </div>
+                    <div class="form-group" style="flex-basis: calc(25% - 10px); margin-right: 10px;">
+                        <label for="chemistryUce">Chemistry</label>
+                        <input type="number" id="chemistryUce" name="chemistryUce" min="1" max="9" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group" style="flex-basis: calc(25% - 10px); margin-right: 10px;">
+                        <label for="physicsUce">Physics</label>
+                        <input type="number" id="physicsUce" name="physicsUce" min="1" max="9" required>
+                    </div>
+                    <div class="form-group" style="flex-basis: calc(25% - 10px); margin-right: 10px;">
+                        <label for="historyUce">History</label>
+                        <input type="number" id="historyUce" name="historyUce" min="1" max="9" required>
+                    </div>
+                    <div class="form-group" style="flex-basis: calc(25% - 10px); margin-right: 10px;">
+                        <label for="geographyUce">Geography</label>
+                        <input type="number" id="geographyUce" name="geographyUce" min="1" max="9" required>
+                    </div>
+                    <div class="form-group" style="flex-basis: calc(25% - 10px); margin-right: 10px;">
+                        <label for="agricPrincUce">Agric & Princ</label>
+                        <input type="number" id="agricPrincUce" name="agricPrincUce" min="1" max="9">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group" style="flex-basis: calc(25% - 10px); margin-right: 10px;">
+                        <label for="commerceUce">Commerce</label>
+                        <input type="number" id="commerceUce" name="commerceUce" min="1" max="9" required>
+                    </div>
+                    <div class="form-group" style="flex-basis: calc(25% - 10px); margin-right: 10px;">
+                        <label for="creIreUce">CRE/IRE:</label>
+                        <input type="number" id="creIreUce" name="creIreUce" min="1" max="9" required>
+                    </div>
+                    <div class="form-group" style="flex-basis: calc(25% - 10px); margin-right: 10px;">
+                        <label for="entrepreneurshipUce">Entrepreneurship</label>
+                        <input type="number" id="entrepreneurshipUce" name="entrepreneurshipUce" min="1" max=9>
+                    </div>
+                    <div class="form-group" style="flex-basis: calc(25% - 10px); margin-right: 10px;">
+                        <label for="ipsUce">IPS:</label>
+                        <input type="number" id="ipsUce" name="ipsUce" min="1" max="9">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group" style="flex-basis: calc(25% - 10px); margin-right: 10px;">
+                        <label for="computerUce">Computer</label>
+                        <input type="number" id="computerUce" name="computerUce" min="1" max="9">
+                    </div>
+                    <div class="form-group" style="flex-basis: calc(25% - 10px); margin-right: 10px;">
+                        <label for="swahiliUce">Swahili</label>
+                        <input type="number" id="swahiliUce" name="swahiliUce" min="1" max="9">
+                    </div>
+                    <div class="form-group" style="flex-basis: calc(25% - 10px); margin-right: 10px;">
+                        <label for="literatureUce">Literature</label>
+                        <input type="number" id="literatureUce" name="literatureUce" min="1" max="9">
+                    </div>
+                    <div class="form-group" style="flex-basis: calc(25% - 10px); margin-right: 10px;">
+                        <label for="lugandaLusogaUce">Luganda/Lusoga</label>
+                        <input type="number" id="lugandaLusogaUce" name="lugandaLusogaUce" min="1" max="9">
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group" style="flex-basis: calc(25% - 10px); margin-right: 10px;">
+                        <label for="aggregatesUce">Aggregates :</label>
+                        <input type="number" id="aggregatesUce" name="aggregatesUce" min="8" max="64" required>
+                    </div>
+                    <div class="form-group" style="flex-basis: calc(25% - 10px); margin-right: 10px;">
+                        <label for="divisionUce">Division:</label>
+                        <input type="number" id="divisionUce" name="divisionUce" min="1" max="4" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="uceCertificate">Attach UCE Certificate:</label>
+                    <input type="file" id="uceCertificate" name="uceCertificate" accept=".pdf,.jpg,.jpeg" required>
+                </div>
+                <hr class="thick-line">
+                <h2>Uganda Advanced Certificate of Education (Optional)</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="uaceIndex" style="display: inline-block; width: 150px; margin-right: 2px;">Index Number:</label>
+                        <input type="text" id="uaceIndex" name="uaceIndex" maxlength="9" placeholder="U0000/000" style="width: 150px;">
+                    </div>
+                    <div class="form-group">
+                        <label for="uaceYear" style="display: inline-block; width: 150px; margin-right: 2px;">Year:</label>
+                        <input type="text" id="uaceYear" name="uaceYear" maxlength="4" placeholder="YYYY" style="width: 150px;">
+                    </div>
+                </div>
+
+                <h2>UACE Subject scores</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="biologyUace">Biology:</label>
+                        <input type="number" id="biologyUace" name="biologyUace" min="0" max="6" class="small-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="chemistryUace">Chemistry:</label>
+                        <input type="number" id="chemistryUace" name="chemistryUace" min="0" max="6" class="small-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="physicsUace">Physics:</label>
+                        <input type="number" id="physicsUace" name="physicsUace" min="0" max="6" class="small-input">
+                    </div>
+                    <div class="form-group">
+                        <label for="mathematicsUace">Mathematics:</label>
+                        <input type="number" id="mathematicsUace" name="mathematicsUace" min="0" max="6">
+                    </div>
+                    <div class="form-group">
+                        <label for="agricultureUace">Agriculture</label>
+                        <input type="number" id="agricultureUace" name="agricultureUace" min="0" max="6">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="geographyUace">Geography:</label>
+                        <input type="number" id="geographyUace" name="geographyUace" min="0" max="6">
+                    </div>
+                    <div class="form-group">
+                        <label for="generalPaperUace">General Paper :</label>
+                        <input type="number" id="generalPaperUace" name="generalPaperUace" min="0" max="9">
+                    </div>
+                    <div class="form-group">
+                        <label for="subsidiaryIctMathUace">Subsidiary ICT/Math :</label>
+                        <input type="number" id="subsidiaryIctMathUace" name="subsidiaryIctMathUace" min="0" max="9">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="uaceCertificate">Attach UACE Certificate:</label>
+                    <input type="file" id="uaceCertificate" name="uaceCertificate" accept=".pdf,.jpg,.jpeg">
+                </div>
+                <button type="button" onclick="previousSection('sectionB', 'sectionA')">Previous</button>
+                <button type="button" onclick="validateSectionB()">Next</button>
+            </div>
+            <script>
+                function validateSectionB() {
+                    const uceIndex = document.getElementById('uceIndex').value.trim();
+                    const uceYear = document.getElementById('uceYear').value.trim();
+                    const englishUce = document.getElementById('englishUce').value.trim();
+                    const mathematicsUce = document.getElementById('mathematicsUce').value.trim();
+                    const biologyUce = document.getElementById('biologyUce').value.trim();
+                    const chemistryUce = document.getElementById('chemistryUce').value.trim();
+                    const physicsUce = document.getElementById('physicsUce').value.trim();
+                    const geographyUce = document.getElementById('geographyUce').value.trim();
+                    const historyUce = document.getElementById('historyUce').value.trim();
+                    const aggregatesUce = document.getElementById('aggregatesUce').value.trim();
+                    const divisionUce = document.getElementById('divisionUce').value.trim();
+
+                    if (uceIndex === '' || !/^U\d{4}\/\d{3}$/.test(uceIndex)) {
+                        alert('Please enter a valid UCE Index number in the format UXXXX/XXX.');
+                        return false;
+                    }
+
+                    const currentYear = new Date().getFullYear();
+                    if (uceYear === '' || parseInt(uceYear) >= currentYear) {
+                        alert('Please enter a valid UCE Year that is before the current year.');
+                        return false;
+                    }
+
+                    const subjects = [englishUce, mathematicsUce, biologyUce, chemistryUce, physicsUce, geographyUce, historyUce];
+                    for (const subject of subjects) {
+                        if (subject === '' || parseInt(subject) < 1 || parseInt(subject) > 9) {
+                            alert('Please provide grades for all required subjects. Each grade should be between 1 and 9.');
+                            return false;
+                        }
+                    }
+
+                    if (aggregatesUce === '' || parseInt(aggregatesUce) < 8 || parseInt(aggregatesUce) > 64) {
+                        alert('UCE Aggregates should be between 8 and 64.');
+                        return false;
+                    }
+
+                    if (divisionUce === '' || parseInt(divisionUce) < 1 || parseInt(divisionUce) > 4) {
+                        alert('Division should be between 1 and 4.');
+                        return false;
+                    }
+
+                    nextSection('sectionB', 'sectionC');
+                    return true;
+                }
+            </script>
+
+
+
+
+            <div id="sectionC" style="display: none;">
+                <h2>Section C: Contact Details</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="telephone">Telephone:</label>
+                        <input type="tel" id="telephone" name="telephone" placeholder="Enter telephone number" required style="width: 400px;">
+                    </div>
+                    <br><br><br>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="Enter email address" required style="width: 250px;">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="country">Country:</label>
+                        <input type="text" id="country" name="country" value="Uganda" readonly style="width: 250px;">
+                        <label for="district">District:</label>
+                        <select id="district" name="district" required style="width: 250px;">
+                <option value="" disabled selected>Select District</option>
+                <option value="Abim">Abim</option>
+                <option value="Adjumani">Adjumani</option>
+                <option value="Agago">Agago</option>
+                <option value="Alebtong">Alebtong</option>
+                <option value="Amolatar">Amolatar</option>
+                <option value="Amudat">Amudat</option>
+                <option value="Amuria">Amuria</option>
+                <option value="Amuru">Amuru</option>
+                <option value="Apac">Apac</option>
+                <option value="Arua">Arua</option>
+                <option value="Budaka">Budaka</option>
+                <option value="Bududa">Bududa</option>
+                <option value="Bugiri">Bugiri</option>
+                <option value="Bugweri">Bugweri</option>
+                <option value="Bukedea">Bukedea</option>
+                <option value="Bukwo">Bukwo</option>
+                <option value="Bulambuli">Bulambuli</option>
+                <option value="Bundibugyo">Bundibugyo</option>
+                <option value="Bunyangabu">Bunyangabu</option>
+                <option value="Bushenyi">Bushenyi</option>
+                <option value="Busia">Busia</option>
+                <option value="Butaleja">Butaleja</option>
+                <option value="Butebo">Butebo</option>
+                <option value="Buikwe">Buikwe</option>
+                <option value="Bukomansimbi">Bukomansimbi</option>
+                <option value="Butambala">Butambala</option>
+                <option value="Buvuma">Buvuma</option>
+                <option value="Gomba">Gomba</option>
+                <option value="Hoima">Hoima</option>
+                <option value="Ibanda">Ibanda</option>
+                <option value="Iganga">Iganga</option>
+                <option value="Isingiro">Isingiro</option>
+                <option value="Jinja">Jinja</option>
+                <option value="Kaabong">Kaabong</option>
+                <option value="Kabale">Kabale</option>
+                <option value="Kabarole">Kabarole</option>
+                <option value="Kagadi">Kagadi</option>
+                <option value="Kakumiro">Kakumiro</option>
+                <option value="Kalaki">Kalaki</option>
+                <option value="Kalangala">Kalangala</option>
+                <option value="Kalungu">Kalungu</option>
+                <option value="Kampala">Kampala</option>
+                <option value="Kamuli">Kamuli</option>
+                <option value="Kamwenge">Kamwenge</option>
+                <option value="Kanungu">Kanungu</option>
+                <option value="Kapchorwa">Kapchorwa</option>
+                <option value="Kapelebyong">Kapelebyong</option>
+                <option value="Kasese">Kasese</option>
+                <option value="Kasanda">Kasanda</option>
+                <option value="Katakwi">Katakwi</option>
+                <option value="Kayunga">Kayunga</option>
+                <option value="Kiboga">Kiboga</option>
+                <option value="Kibuku">Kibuku</option>
+                <option value="Kiruhura">Kiruhura</option>
+                <option value="Kisoro">Kisoro</option>
+                <option value="Kitagwenda">Kitagwenda</option>
+                <option value="Kitgum">Kitgum</option>
+                <option value="Koboko">Koboko</option>
+                <option value="Kole">Kole</option>
+                <option value="Kotido">Kotido</option>
+                <option value="Kumi">Kumi</option>
+                <option value="Kween">Kween</option>
+                <option value="Kyankwanzi">Kyankwanzi</option>
+                <option value="Kyotera">Kyotera</option>
+                <option value="Lamwo">Lamwo</option>
+                <option value="Lira">Lira</option>
+                <option value="Luuka">Luuka</option>
+                <option value="Luweero">Luweero</option>
+                <option value="Lwengo">Lwengo</option>
+                <option value="Lyantonde">Lyantonde</option>
+                <option value="Manafwa">Manafwa</option>
+                <option value="Maracha">Maracha</option>
+                <option value="Masaka">Masaka</option>
+                <option value="Masindi">Masindi</option>
+                <option value="Mayuge">Mayuge</option>
+                <option value="Mbale">Mbale</option>
+                <option value="Mbarara">Mbarara</option>
+                <option value="Mitooma">Mitooma</option>
+                <option value="Moroto">Moroto</option>
+                <option value="Moyo">Moyo</option>
+                <option value="Mpigi">Mpigi</option>
+                <option value="Mubende">Mubende</option>
+                <option value="Mukono">Mukono</option>
+                <option value="Nabilatuk">Nabilatuk</option>
+                <option value="Nakapiripirit">Nakapiripirit</option>
+                <option value="Nakaseke">Nakaseke</option>
+                <option value="Nakasongola">Nakasongola</option>
+                <option value="Namayingo">Namayingo</option>
+                <option value="Namisindwa">Namisindwa</option>
+                <option value="Namutumba">Namutumba</option>
+                <option value="Napak">Napak</option>
+                <option value="Nebbi">Nebbi</option>
+                <option value="Ngora">Ngora</option>
+                <option value="Ntoroko">Ntoroko</option>
+                <option value="Ntungamo">Ntungamo</option>
+                <option value="Nwoya">Nwoya</option>
+                <option value="Omoro">Omoro</option>
+                <option value="Otuke">Otuke</option>
+                <option value="Oyam">Oyam</option>
+                <option value="Pader">Pader</option>
+                <option value="Pakwach">Pakwach</option>
+                <option value="Pallisa">Pallisa</option>
+                <option value="Rakai">Rakai</option>
+                <option value="Rubanda">Rubanda</option>
+                <option value="Rubirizi">Rubirizi</option>
+                <option value="Rukiga">Rukiga</option>
+                <option value="Rukungiri">Rukungiri</option>
+                <option value="Rwampara">Rwampara</option>
+                <option value="Serere">Serere</option>
+                <option value="Sembabule">Sembabule</option>
+                <option value="Sheema">Sheema</option>
+                <option value="Sironko">Sironko</option>
+                <option value="Soroti">Soroti</option>
+                <option value="Terego">Terego</option>
+                <option value="Tororo">Tororo</option>
+                <option value="Wakiso">Wakiso</option>
+                <option value="Yumbe">Yumbe</option>
+                <option value="Zombo">Zombo</option>
+            </select>
+                    </div>
+                </div>
+                <div class="address">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="county">County:</label>
+                            <input type="text" id="county" name="county" placeholder="Enter county" required style="width: 250px;">
+                            <label for="subCounty">Sub County:</label>
+                            <input type="text" id="subCounty" name="subCounty" placeholder="Enter sub county" required style="width: 250px;">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="parish">Parish:</label>
+                            <input type="text" id="parish" name="parish" placeholder="Enter parish" required style="width: 250px;">
+                            <label for="village">Village/Cell:</label>
+                            <input type="text" id="village" name="village" placeholder="Enter village/cell" required style="width: 250px;">
+                        </div>
+                    </div>
+                    <button type="button" onclick="previousSection('sectionC', 'sectionB')">Previous</button>
+                    <button type="button" onclick="if(validateSectionC())nextSection('sectionC', 'sectionD')">Next</button>
+                </div>
+            </div>
+
+            <script>
+                function validateSectionC() {
+                    const telephone = document.getElementById('telephone').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const district = document.getElementById('district').value;
+                    const village = document.getElementById('village').value.trim();
+                    const telephoneRegex = /^\+256\d{9}$/;
+                    if (!telephoneRegex.test(telephone)) {
+                        alert('Please enter a valid telephone number in the format +256XXXXXXXXX.');
+                        return false;
+                    }
+                    const emailRegex = /^\S+@\S+\.\S+$/;
+                    if (!emailRegex.test(email)) {
+                        alert('Please enter a valid email address.');
+                        return false;
+                    }
+                    if (district === '' || village === '') {
+                        alert('Please fill in all required fields for district and village.');
+                        return false;
+                    }
+
+                    nextSection('sectionC', 'sectionD');
+                }
+            </script>
+
+            <div id="sectionD" style="display: none;">
+                <h2>Section D: Additional Details</h2>
+                <h2>Next of Kin</h2>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="kinName">Name:</label>
+                        <input type="text" id="kinName" name="kinName" required style="width: 200px;">
+                    </div>
+                    <div class="form-group">
+                        <label for="kinOccupation">Occupation:</label>
+                        <input type="text" id="kinOccupation" name="kinOccupation" required style="width: 200px;">
+                    </div>
+                </div>
+                <h3>Address</h3><br>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="District">Ditrict</label>
+                        <input type="text" id="kinDistrict" name="kinDistrict" required style="width: 200px;">
+                    </div>
+                    <div class="form-group">
+                        <label for="kinParish">Parish</label>
+                        <input type="text" id="kinParish" name="kinParish" required style="width: 200px;">
+                    </div>
+                    <div class="form-group">
+                        <label for="kinVillage">Village</label>
+                        <input type="text" id="kinVillage" name="kinVillage" required style="width: 200px;">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="kinTelephone">Telephone:</label>
+                        <input type="tel" id="kinTelephone" name="kinTelephone" required style="width: 250px;">
+                        <label for="kinEmail">Email:</label>
+                        <input type="email" id="kinEmail" name="kinEmail" style="width: 250px;">
+                    </div>
+                    <br><br>
+                    <div class="form-group">
+                        <label for="kinRelationship">Relationship:</label>
+                        <select id="kinRelationship" name="kinRelationship" required style="width: 400px;">
+            <option value="">Select Relationship</option>
+            <option value="Mother">Mother</option>
+            <option value="Father">Father</option>
+            <option value="Husband">Husband</option>
+            <option value="Wife">Wife</option>
+            <option value="Uncle">Uncle</option>
+            <option value="Auntie">Auntie</option>
+            <option value="Sponsor">Sponsor</option>
+            <option value="Grandparent">Grandparent</option>
+            <option value="Sister">Sister</option>
+            <option value="Brother">Brother</option>
+            <option value="Others">Others</option>
+        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="NIN">National ID Number</label>
+                        <input type="text" id="NIN" name="NIN" required style="width: 300px;">
+                    </div>
+                </div>
+                <button type="button" onclick="previousSection('sectionD', 'sectionC')">Previous</button>
+                <button type="button" onclick="if(validateSectionD())nextSection('sectionD', 'sectionE')">Next</button>
+            </div>
+            <script>
+                function validateSectionD() {
+                    var kinName = document.getElementById('kinName').value;
+                    var kinTelephone = document.getElementById('kinTelephone').value;
+                    var kinRelationship = document.getElementById('kinRelationship').value;
+                    var NIN = document.getElementById('NIN').value;
+                    if (kinName.trim() === '') {
+                        alert('Please enter the name of the next of kin.');
+                        return false;
+                    }
+
+                    var phonePattern = /^\+256\d{9}$/;
+                    if (!phonePattern.test(kinTelephone)) {
+                        alert('Please enter a valid telephone number for the next of kin in the format +256XXXXXXXXX.');
+                        return false;
+                    }
+
+                    if (kinRelationship === '') {
+                        alert('Please select the relationship with the next of kin.');
+                        return false;
+                    }
+                    var ninPattern = /^(CM|CF)[A-Za-z0-9]{12}$/;
+                    if (!ninPattern.test(NIN)) {
+                        alert('Please enter a valid National ID Number (NIN) starting with CM or CF, consisting of letters and numbers, and excluding special characters, O, and I.');
+                        return false;
+                    }
+
+                    nextSection('sectionD', 'sectionE');
+                }
+            </script>
+            <div id="sectionE" style="display: none;">
+                <h2>Where did you get Information about the Institute</h2>
+                <div class="form-group">
+                    <label>Select one option:</label><br>
+                    <label><input type="radio" name="source" value="Brochures"> Brochures</label><br>
+                    <label><input type="radio" name="source" value="Word of mouth"> Word of mouth</label><br>
+                    <label><input type="radio" name="source" value="Flyers"> Flyers</label><br>
+                    <label><input type="radio" name="source" value="Social media"> Social media</label><br>
+                    <label><input type="radio" name="source" value="Radio"> Radio</label><br>
+                    <input type="text" id="radioSpecify" name="radioSpecify" placeholder="Station" style="width: 100px; display: none;"><br>
+                    <label><input type="radio" name="source" value="Others"> Others</label><br>
+                </div>
+                <hr class="thick-line">
+                <div class="form-group" style="display: flex; align-items: center;">
+                    <button type="button" onclick="previousSection('sectionE', 'sectionD')">Previous</button>
+                    <button type="button" onclick="validateAndSubmit()">Submit</button>
+                </div>
+            </div>
+</body>
+<script>
+    function nextSection(currentSectionId, nextSectionId) {
+        document.getElementById(currentSectionId).style.display = "none";
+        document.getElementById(nextSectionId).style.display = "block";
+        document.getElementById("sectionA").style.display = "none";
+    }
+
+    function previousSection(currentSectionId, previousSectionId) {
+        document.getElementById(currentSectionId).style.display = "none";
+        document.getElementById('sectionA').style.display = "none";
+        document.getElementById(previousSectionId).style.display = "block";
+    }
+</script>
+<script>
+    function validateAndSubmit() {
+        submitForm();
+    }
+
+    function submitForm() {
+        var formData = new FormData(document.getElementById('applicationForm'));
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'submit.php', true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                alert(xhr.responseText);
+            }
+        };
+        xhr.send(formData);
+    }
+</script>
+
+
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="dashboard.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="responsive.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="bg-dark text-light p-3">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Logo</h3>
+                </div>
+                <div class="col-md-6 text-md-right">
+                    <span class="d-block d-md-inline-block mr-3">Logged in as <?php echo $role; ?> (Logged in: <?php echo $loginTime; ?>)</span>
+                    <span class="d-block d-md-inline-block mr-3">Current Date: <?php echo date("Y-m-d"); ?></span>
+                    <form action="logout.php" method="post">
+                        <button type="submit" class="btn btn-danger">Logout</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Side Navigation -->
+            <div class="sidebar-sticky">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-tachometer-alt"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="toggleCourses">
+                            <i class="fas fa-book"></i> Courses
+                        </a>
+                        <div id="coursesSubMenu" class="submenu" style="display: none;">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="view_courses.php">
+                                        <i class="fas fa-eye"></i> View Courses
+                                    </a>
+                                </li>
+                                <?php if($role == 'Director' || $role == 'Principal') { ?>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="manage_courses.php">
+                                        <i class="fas fa-cog"></i> Manage Courses
+                                    </a>
+                                </li>
+                                <?php } ?>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="toggleStudents">
+                            <i class="fas fa-graduation-cap"></i> Students
+                        </a>
+                        <div id="studentsSubMenu" class="submenu" style="display: none;">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="view_students.php">
+                                        <i class="fas fa-eye"></i> View Students
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="manage_students.php">
+                                        <i class="fas fa-cog"></i> Manage Students (CRUD)
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="toggleApplicants">
+                            <i class="fas fa-user-plus"></i> Applicants
+                        </a>
+                        <div id="applicantsSubMenu" class="submenu" style="display: none;">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="view_applicants.php">
+                                        <i class="fas fa-eye"></i> View Applicants
+                                    </a>
+                                </li>
+                                <?php if ($role == 'Director' || $role == 'Principal') : ?>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="manage_applicants.php">
+                                        <i class="fas fa-cog"></i> Manage Applicants
+                                    </a>
+                                </li>
+                                <?php endif; ?>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="toggleStaff">
+                            <i class="fas fa-users"></i> Staff
+                        </a>
+                        <div id="staffSubMenu" class="submenu" style="display: none;">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="view_staff.php">
+                                        <i class="fas fa-eye"></i> View Staff
+                                    </a>
+                                </li>
+                                <?php if($role == 'Director' || $role == 'Principal') { ?>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="manage_staff.php">
+                                        <i class="fas fa-cog"></i> Manage Staff
+                                    </a>
+                                </li>
+                                <?php } ?>
+                            </ul>
+
+                        </div>
+                    </li>
+                    <?php if($role == 'Director') { ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="toggleUsers">
+                            <i class="fas fa-users-cog"></i> Users
+                        </a>
+                        <div id="usersSubMenu" class="submenu" style="display: none;">
+                            <ul class="nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="view_users.php">
+                                        <i class="fas fa-eye"></i> View Users
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="manage_users.php">
+                                        <i class="fas fa-cog"></i> Manage Users
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="add_user.php">
+                                        <i class="fas fa-user-plus"></i> Add User
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <?php } ?>
+                </ul>
+            </div>
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+                <div id="main-content" class="container-fluid mt-3">
+                    <h2>Dashboard</h2>
+                    <canvas id="applicantChart"></canvas>
+                    <!-- Chart will be rendered here -->
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-light text-center py-3 mt-5">
+        Footer Options
+    </footer>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <!-- Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Your custom JavaScript -->
+    <script>
+        // Function to fetch applicant data using AJAX
+        function fetchApplicantData() {
+            $.ajax({
+                url: 'fetch_applicant_data.php',
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    // Once data is fetched successfully, create the chart
+                    createApplicantChart(data);
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error fetching applicant data:', error);
+                }
+            });
+        }
+
+        // Function to create the chart using Chart.js
+        function createApplicantChart(data) {
+            // Extract necessary data for chart
+            var applicants = data.map(function(applicant) {
+                return applicant.gender; // Assuming 'gender' is a column in your biodata table
+            });
+
+            // Count the number of male and female applicants
+            var maleCount = applicants.filter(function(gender) {
+                return gender === 'Male';
+            }).length;
+            var femaleCount = applicants.filter(function(gender) {
+                return gender === 'Female';
+            }).length;
+
+            // Render the chart
+            var ctx = document.getElementById('applicantChart').getContext('2d');
+            var chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Male', 'Female'],
+                    datasets: [{
+                        label: 'Applicants by Gender',
+                        data: [maleCount, femaleCount],
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                        ],
+                        borderColor: [
+                            'rgba(255, 99, 132, 1)',
+                            'rgba(54, 162, 235, 1)',
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }
+            });
+        }
+
+        // Call the function to fetch applicant data and create the chart
+        fetchApplicantData();
+    </script>
+
+</body>
+
+</html>
